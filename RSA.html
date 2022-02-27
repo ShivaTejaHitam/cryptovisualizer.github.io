@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSA</title>
+  <link href="RSA.css" rel="stylesheet" />
+  <!--  Adding Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body >
+	<!-- Nav bar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <!--Project Title -->
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="#">CryptoVisualizer</a>
+		  </div>
+
+		  <!-- List of Algorithms-->
+		  <ul class="nav navbar-nav">
+			<li><a href="caesercipher.html">Caeser Cipher</a></li>
+			<li><a href="hillcipher.html">Hill Cipher</a></li>
+			<li><a href="DES.html">DES</a></li>
+			<li><a href="#">AES</a></li>
+			<li class="active"><a href="">RSA</a></li>
+		  </ul>
+
+		  <form name="myform" id="myform" class="navbar-form navbar-left" action="" method="post">
+			<!-- Plaintext input -->
+			<div class="form-group">
+			  <input type="text" class="form-control" name="plaintext" placeholder="Enter the plain text" name="search" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)">
+			</div>
+
+			<!-- first prime number input -->
+			<div class="form-group">
+				<input type="text" class="form-control" name="fpn" placeholder="Enter any large prime number"  min=1>
+			</div>
+
+			<!-- second prime number input -->
+			<div class="form-group">
+				<input type="text" class="form-control" name="spn" placeholder="Enter another large prime number"  min=1>
+			</div>
+
+			<!--Encrypt button -->
+			<button type="button" onclick="RSA(),disable()" class="btn btn-default" id="Button1">Encrypt</button>
+			<!-- Decrypt button -->
+			<button  onclick="Decrypt(),disable()" class="btn btn-default" id="Button2" disabled="True">Decrypt</button>
+			
+			<!-- Clear board-->
+			<button  onclick="randomize()" class="btn btn-default" id="Button3">Clear Board</button>
+		  </form>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+		  <div class="col-lg-4" style="background-color:white;" >
+			<center><strong>Plaintext</strong></center>
+			<center class="plaintext"></center>
+		  </div>
+		  <div class="col-lg-4" style="background-color:white;">
+			<center><strong>Encryption</strong></center>
+			<center><h3><strong id="eformula" style="color: red;"></strong></h3></center>
+			<center><h3><strong id="encryptioncalc"></strong></h3></center>
+			<center><strong class="encryptionshowarea"></strong></center>
+		  </div>
+
+		  <div class="col-lg-4" style="background-color:white;">
+			<center><strong>Finding e</strong></center>
+			<center><h3><strong id="gcdcalc"></strong></h3></center>
+			<center><strong class="gcdshowarea"></strong></center>
+		  </div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			  <div class="col-lg-4" style="background-color:white;">
+				<center><strong>Key Generation</strong></center>
+				
+				<center><h3><strong id="operation" style="color: red;"></strong></h3></center>
+				<center class="pnq"></center>
+			  </div>	
+			  <div class="col-lg-4" style="background-color:white;">
+				<center><strong>Decryption</strong></center>
+				<center><h3><strong id="dformula" style="color: red;"></strong></h3></center>
+				<center><h3><strong id="decryptioncalc"></strong></h3></center>
+				<center><strong class="decryptionshowarea"></strong></center>
+			  </div>
+			  <div class="col-lg-4" style="background-color:white;">
+				<center><strong>Finding d</strong></center>
+				<center><h3><strong id="dcalc"></strong></h3></center>
+			<center><strong class="dshowarea"></strong></center>
+			  </div>
+		</div>
+	</div>
+
+<script src="RSA.js"></script>
+
+</body>
+</html>

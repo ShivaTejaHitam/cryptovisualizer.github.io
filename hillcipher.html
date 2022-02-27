@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hill Cipher</title>
+  <link href="hillcipher.css" rel="stylesheet" />
+  <!--  Adding Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <!--Project Title -->
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="#">CryptoVisualizer</a>
+		  </div>
+
+		  <!-- List of Algorithms-->
+		  <ul class="nav navbar-nav">
+			<li><a href="caesercipher.html">Caeser Cipher</a></li>
+			<li class="active"><a href="#">Hill Cipher</a></li>
+			<li><a href="DES.html">DES</a></li>
+			<li><a href="#">AES</a></li>
+			<li ><a href="RSA.html">RSA</a></li>
+		  </ul>
+
+		  <form name="myform" id="myform" class="navbar-form navbar-left" action="" method="post">
+			<!-- Plaintext input -->
+			<div class="form-group">
+			  <input type="text" class="form-control" name="plaintext" placeholder="Enter the plain text" name="search" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)">
+			</div>
+
+			
+			<!--Encrypt button -->
+			<button type="button" onclick="Encrypt(),disable_all_buttons()" class="btn btn-default" id="Button1">Encrypt</button>
+			<!-- Decrypt button -->
+			<button  onclick="Decrypt(),disable_all_buttons()" class="btn btn-default" id="Button2" disabled="True">Decrypt</button>
+			
+			<!-- Clear board-->
+			<button  onclick="randomize()" class="btn btn-default" id="Button3">Clear Board</button>
+		  </form>
+		</div>
+	</nav>
+
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-lg-3" style="background-color:white;" >
+		<center><strong>Plaintext</strong></center>
+		<center class="plaintext"></center>
+	  </div>
+
+	  <div class="col-lg-3" style="background-color:white;">
+		<center><strong>Key Matrix</strong></center>
+		<!--<center><h3><strong id="eformula" style="color: red;"></strong></h3></center>
+		<center><h3><strong id="encryptioncalc"></strong></h3></center>-->
+		<center class="keymatrix"></center>
+	  </div>
+
+	  <div class="col-lg-3" style="background-color:white;">
+		<center><strong>Product</strong></center>
+		<!--<center><h3><strong id="gcdcalc"></strong></h3></center>-->
+		<center class="product"></center>
+	  </div>
+
+	  <div class="col-lg-3" style="background-color:white;">
+		<center><strong>CipherText</strong></center>
+		<!--<center><h3><strong id="gcdcalc"></strong></h3></center>-->
+		<center class="ciphertext"></center>
+	  </div>
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	
+
+	<div class="row">
+		  <div class="col-lg-3" style="background-color:white;">
+			<center><strong>Inverse of Key Matrix</strong></center>
+			<!--<center><h3><strong id="operation" style="color: red;"></strong></h3></center>-->
+			<center class="inversekeymatrix"></center>
+		  </div>	
+		  <div class="col-lg-3" style="background-color:white;">
+			<center><strong>Ciphertext</strong></center>
+			<!--<center><h3><strong id="dformula" style="color: red;"></strong></h3></center>
+			<center><h3><strong id="decryptioncalc"></strong></h3></center>-->
+			<center class="ciphertext2"></center>
+		  </div>
+		  <div class="col-lg-3" style="background-color:white;">
+			<center><strong>Product</strong></center>
+		<!--<center><h3><strong id="dcalc"></strong></h3></center>-->
+			<center class="product2"></center>
+		  </div>
+
+		  <div class="col-lg-3" style="background-color:white;">
+			<center><strong>Plaintext</strong></center>
+			<!--<center><h3><strong id="gcdcalc"></strong></h3></center>-->
+			<center class="plaintext2"></center>
+		  </div>
+	</div>
+</div>
+
+<script src="hillcipher.js">
+	
+</script>
+
+</body>
+
+</html>
